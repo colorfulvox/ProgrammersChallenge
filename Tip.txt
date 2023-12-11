@@ -1,0 +1,19 @@
+
+// Vector iterator
+#include <vector>
+vector<int> v;
+
+for (auto iter = v.begin(); iter != v.end(); iter++) {
+    cout << *iter << endl;
+}
+
+// Reverse
+#include <vector>
+#include <algorithm>
+vector<int> v = { 10, 40, 50, 30, 20 };
+reverse(v.begin(), v.end());
+
+// Vector Slice
+#include <vector>
+numbers : [1, 2, 3, 4, 5];
+vector<int> answer = vector<int>(numbers.begin() + first, numbers.begin() + last+1);
