@@ -39,6 +39,11 @@ int main()
 }
 
 //람다 함수를 통한 sort 알고리즘에 인자 추가하기
+struct Person {
+    string name;
+    int age;
+};
+
 auto compare = [](Person a, Person b, bool sortByAge) {
         if (sortByAge) {
             return a.age < b.age;
@@ -46,6 +51,8 @@ auto compare = [](Person a, Person b, bool sortByAge) {
             return a.name < b.name;
         }
 };
+
+vector<Person> people = {{"Alice", 25}, {"Bob", 20}, {"Charlie", 30}};
 
 sort(people.begin(), people.end(), [&](Person a,Person b) {
         return compare(a, b, true);
