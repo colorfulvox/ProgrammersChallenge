@@ -57,3 +57,9 @@ vector<Person> people = {{"Alice", 25}, {"Bob", 20}, {"Charlie", 30}};
 sort(people.begin(), people.end(), [&](Person a,Person b) {
         return compare(a, b, true);
     });
+
+A B C 최소공배수(LCM)
+A와 B의 LCM, C == A,B,C의 LCM
+
+LCM = (a*b)/GCD
+GCD = LCM/(a*b)
