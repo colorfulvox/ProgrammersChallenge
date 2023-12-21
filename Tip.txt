@@ -63,3 +63,15 @@ A와 B의 LCM, C == A,B,C의 LCM
 
 LCM = (a*b)/GCD
 GCD = LCM/(a*b)
+
+
+// 띄어쓰기를 기준으로 문자열 분리
+string temp = "Hello World Goodbye World";
+vector<string> dat;
+size_t start = 0, end = 0;
+
+while ((end = temp.find(' ', start)) != string::npos) {
+      dat.push_back(temp.substr(start, end - start));
+      start = end + 1;
+    }
+dat.push_back(temp.substr(start));
