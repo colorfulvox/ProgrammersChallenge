@@ -75,3 +75,13 @@ while ((end = temp.find(' ', start)) != string::npos) {
       start = end + 1;
     }
 dat.push_back(temp.substr(start));
+
+
+// 함수 인자에 왠만하면 배열을 넣지말자
+특히 재귀함수에 넣으면 시간이 더 느려진다. 
+(전역 변수로 저장할때 속도가 더 빠르다.)
+
+
+
+//다시 볼 문제
+전화번호 목록
