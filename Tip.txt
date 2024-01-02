@@ -38,6 +38,30 @@ int main()
     
 }
 
+// 유클리드 호제법으로 최대공약수 구하기
+int GCD(int a, int b) {
+  if (a < b) {
+    int tm = a;
+    a = b;
+    b = tm;
+  }
+
+  int temp;
+  while (a % b != 0) {
+    temp = a % b;
+    a = b;
+    b = temp;
+  }
+  return b;
+}
+
+A B C 최소공배수(LCM)
+A와 B의 LCM, C == A,B,C의 LCM
+
+LCM = (a*b)/GCD
+GCD = LCM/(a*b)
+
+
 //람다 함수를 통한 sort 알고리즘에 인자 추가하기
 struct Person {
     string name;
@@ -58,12 +82,6 @@ sort(people.begin(), people.end(), [&](Person a,Person b) {
         return compare(a, b, true);
     });
 
-A B C 최소공배수(LCM)
-A와 B의 LCM, C == A,B,C의 LCM
-
-LCM = (a*b)/GCD
-GCD = LCM/(a*b)
-
 
 // 띄어쓰기를 기준으로 문자열 분리
 string temp = "Hello World Goodbye World";
@@ -82,6 +100,64 @@ dat.push_back(temp.substr(start));
 (전역 변수로 저장할때 속도가 더 빠르다.)
 
 
+// vector 최솟값 구하기 
+#include <algorithm>
+*min_element(table.begin(), table.end());
+
+// priority_queue 정렬 (기본적으로 내림차순)
+priority_queue<int, vector<int>, greater<int> > q; // 오름차순
+
+// 구조체 정렬
+#include <queue>
+#include <algorithm>
+#include <vector>
+
+struct info {
+  int idx;
+  int cnt;
+};
+
+struct cmp {
+  bool operator()(info a, info b) {
+    if (a.cnt == b.cnt)
+      return a.idx > b.idx; // 같다면 인덱스 기준 오름차순
+    else
+      return a.cnt < b.cnt; //cnt 내림차순
+  }
+};
+
+map<string, priority_queue<info, vector<info>, cmp>> lst;
+
+// map 정렬
+#include <algorithm>
+#include <map>
+#include <string>
+#include <vector>
+bool compare(pair<string, int> a, pair<string, int> b) {
+  return a.second > b.second;
+}
+
+map<string, int> lst;
+.
+.
+.
+. // 데이터 넣는중
+
+vector<pair<string, int>> sortlst(lst.begin(), lst.end()); // pair vector로 따로 저장
+sort(sortlst.begin(), sortlst.end(), compare); // 정렬
 
 //다시 볼 문제
-전화번호 목록
+전화번호 목록, 
+메뉴 리뉴얼, 
+전력망을 둘로 나누기(DFS 방식도 해보자), 
+호텔 대실, 
+[카카오 인턴] 수식 최대화, 
+시소 짝꿍, 
+불량 사용자(Map 브루트 포스),
+징검다리 건너기,
+줄 서는 방법
+
+//그래프 문제 : 배달, 가장 먼 노드 (다익스트라 x2, 플로이드 워샬)
+
+// DP 문제
+스티커 모으기(2)
