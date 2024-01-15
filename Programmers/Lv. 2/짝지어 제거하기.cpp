@@ -1,4 +1,5 @@
-#include <iostream>
+
+#include <stack>
 #include <string>
 #include <vector>
 using namespace std;
@@ -6,18 +7,18 @@ using namespace std;
 int solution(string s) {
   int answer = 1;
 
-  vector<char> table;
+  stack<char> st;
 
-  for (int i = 0; i < s.length(); ++i) {
-    if (table.size() > 0) {
-      if (table[table.size() - 1] == s[i])
-        table.pop_back();
+  for (auto w : s) {
+    if (st.size()) {
+      if (st.top() == w)
+        st.pop();
       else
-        table.push_back(s[i]);
+        st.push(w);
     } else
-      table.push_back(s[i]);
+      st.push(w);
   }
-  if (table.size() > 0) answer = 0;
+  if (st.size()) answer = 0;
 
   return answer;
 }
