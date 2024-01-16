@@ -1,28 +1,27 @@
 #include <iostream>
+#include <stack>
 #include <string>
-#include <vector>
 
 using namespace std;
 
 bool solution(string s) {
   bool answer = true;
 
-  vector<bool> st;
+  stack<int> st;
 
-  for (int i = 0; i < s.length(); ++i) {
-    if (s[i] == '(')
-      st.push_back(true);
-
+  for (auto w : s) {
+    if (w == '(')
+      st.push(1);
     else {
-      if (st.size() > 0)
-        st.pop_back();
+      if (st.size())
+        st.pop();
       else {
         answer = false;
         break;
       }
     }
   }
-  if (st.size() > 0) answer = false;
+  if (st.size()) answer = false;
 
   return answer;
 }

@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <string>
 #include <vector>
 
@@ -6,22 +7,21 @@ using namespace std;
 string solution(string s) {
   string answer = "";
 
-  int max = -21e8;
-  int min = 21e8;
+  int start = 0, end = 0;
 
-  string temp = "";
-  for (int i = 0; i < s.length(); ++i) {
-    if (s[i] == ' ' || i + 1 == s.length()) {
-      if (i + 1 == s.length()) temp += s[i];
-      int n = stoi(temp);
-      temp = "";
-      if (max < n) max = n;
-      if (min > n) min = n;
+  vector<int> lst;
 
-    } else
-      temp += s[i];
+  while ((end = s.find(' ', start)) != string::npos) {
+    int num = stoi(s.substr(start, end - start));
+    lst.push_back(num);
+    start = end + 1;
   }
-  answer = to_string(min) + ' ' + to_string(max);
+  int num = stoi(s.substr(start));
+  lst.push_back(num);
+
+  sort(lst.begin(), lst.end());
+
+  answer += to_string(lst[0]) + ' ' + to_string(lst[lst.size() - 1]);
 
   return answer;
 }

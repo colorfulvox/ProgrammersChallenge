@@ -19,12 +19,12 @@ using namespace std;
 int solution(int n) {
   int answer = 0;
 
-  int i = 1;
-  while (n > 0) {
-    if (n % i == 0) ++answer;
+  int num = 1;
 
-    n -= i;
-    ++i;
+  while (n >= num) {
+    if (n % num == 0) ++answer;
+    n -= num;
+    ++num;
   }
 
   return answer;

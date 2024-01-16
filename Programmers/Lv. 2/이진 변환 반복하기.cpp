@@ -3,39 +3,29 @@
 
 using namespace std;
 
-int cnt = 0;
-int zero = 0;
+vector<int> answer(2, 0);
 
-string convert(string target) {
-  int one = 0;
-  for (auto tar = target.begin(); tar < target.end(); ++tar) {
-    if (*tar == '1')
-      ++one;
-    else
-      zero++;
+string func(string x) {
+  int zero = 0;
+  for (auto w : x) {
+    if (w == '0') ++zero;
   }
-
-  ++cnt;
-  if (one == 1) return "1";
+  answer[1] += zero;
+  int num = x.length() - zero;
 
   string temp = "";
-  while (one) {
-    temp += (one % 2) + '0';
-    one /= 2;
+  while (num) {
+    temp += to_string(num % 2);
+    num /= 2;
   }
-
   return temp;
 }
 
 vector<int> solution(string s) {
-  vector<int> answer;
-
-  while (true) {
-    if (s == "1") break;
-    s = convert(s);
+  while (s.length() != 1) {
+    s = func(s);
+    ++answer[0];
   }
 
-  answer.push_back(cnt);
-  answer.push_back(zero);
   return answer;
 }
