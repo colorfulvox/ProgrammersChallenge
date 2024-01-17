@@ -17,6 +17,15 @@ reverse(v.begin(), v.end());
 numbers : [1, 2, 3, 4, 5];
 vector<int> answer = vector<int>(numbers.begin() + first, numbers.begin() + last+1);
 
+// 실수 소수점 제어
+#include <iomanip>
+#include <sstream>
+double temp = 123.456
+ostringstream oss;
+oss << std::fixed << std::setprecision(1) << temp;
+
+-> 123.4
+
 //약수 구하기
 #include <cmath>
 #include <vector>
@@ -172,10 +181,10 @@ sort(sortlst.begin(), sortlst.end(), compare); // 정렬
 [1차] 셔틀버스
 
 //그래프 문제 : 배달(다익스트라 x2, 플로이드 워샬), 가장 먼 노드(다익스트라, 노드 갯수가 커서 플로이드 워샬 불가능),
-섬 연결하기 (union-find + 크루스칼 알고리즘, 프림 알고리즘), 합승 택시 요금
+섬 연결하기 (union-find + 크루스칼 알고리즘, 프림 알고리즘), 합승 택시 요금, 부대복귀
 
 // DP 문제
-스티커 모으기(2), 정수 삼각형, 등굣길, 가장 큰 정사각형 찾기, 가장 긴 팰린드롬
+스티커 모으기(2), 정수 삼각형, 등굣길, 가장 큰 정사각형 찾기, 가장 긴 팰린드롬, 거스름돈
 
 
 //조금이라도 고민하는 문제
